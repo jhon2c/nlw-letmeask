@@ -1,3 +1,5 @@
+![Landing Page](https://github.com/jhon2c/nlw-letmeask/raw/main/docs/page.PNG)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
