@@ -8,6 +8,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias durante o NLW:
 - [React](https://reactjs.org)
 - [Firebase](https://firebase.google.com)
 - [TypeScript](https://www.typescriptlang.org/)
+- [SASS](https://sass-lang.com)
 
 ## 💻 Projeto
 
