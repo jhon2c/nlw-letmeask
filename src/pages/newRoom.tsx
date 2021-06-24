@@ -41,7 +41,7 @@ export function NewRoom() {
             <main>
                 <div className="main-content">
                     <img src={logoImg} alt="Letmeask" />
-                        <h2>Criar uma nova sala</h2>
+                        <h2>Olá, {user?.name.split(' ').shift()}, vamos criar uma nova sala?</h2>
                     <form onSubmit={CreateRoom}>
                         <input 
                             type="text" 

@@ -1,4 +1,4 @@
-![Landing Page](https://github.com/jhon2c/nlw-letmeask/raw/main/docs/page.PNG)
+![Landing Page](https://github.com/jhon2c/nlw-letmeask/raw/main/docs/page.gif)
 
 # Getting Started with Create React App
 
