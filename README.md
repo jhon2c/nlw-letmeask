@@ -1,21 +1,26 @@
+<h1 align="center">LetmeAsk</h1>
+
 ![Landing Page](https://github.com/jhon2c/nlw-letmeask/raw/main/docs/page.gif)
 
-## 🚀 Tecnologias
+## 🔗 Live Test
 
-Esse projeto foi desenvolvido com as seguintes tecnologias durante o NLW:
+- [LetmeAsk Demo](https://nlw-letmeask-514e7.web.app) - only available in Portuguese
+
+## 💻 Project
+
+Letmeask it's an application to allow people create rooms for Q&A and interaction on streaming/live events
+
+## 🛠 Technologies 
+This project was developed during the NLW using the following technologies:
 
 - [Node.js](https://nodejs.org/en/)
 - [React](https://reactjs.org)
 - [Firebase](https://firebase.google.com)
 - [TypeScript](https://www.typescriptlang.org/)
-- [SASS](https://sass-lang.com)
-
-## 💻 Projeto
-
-O Letmeask é uma aplicação que permite as pessoas criarem sala de perguntas para auxiliar em transmissões ao vivo
+- [Sass](https://sass-lang.com)
 
 ## 🔖 Layout
 
-No link abaixo você encontra o layout do projeto web.
+You can see the entire layout on the following link:
 
 - [Layout Web](https://www.figma.com/file/u0BQK8rCf2KgzcukdRRCWh/Letmeask/duplicate)
