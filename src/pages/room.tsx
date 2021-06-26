@@ -1,13 +1,21 @@
 import { FormEvent, useState } from 'react';
 import { useParams } from 'react-router';
-import logoImg from '../assets/images/logo.svg';
+
+// Components
 import { Button } from '../components/button';
 import { Question } from '../components/question';
 import { RoomCode } from '../components/roomCode';
+
+//Hooks
 import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../hooks/useRoom';
+
+//Serivces
 import { database } from '../services/firebase';
+
+// Files
 import '../styles/room.scss';
+import logoImg from '../assets/images/logo.svg';
 
 type roomParams ={
     id: string;
@@ -17,9 +25,9 @@ export function Room(){
     const { user } = useAuth();
     const params = useParams<roomParams>();
     const [newQuestion, setNewQuestion] = useState('');
-
+    const [sort, setSort] = useState(false);
     const roomId = params.id;
-    const {title,questions} = useRoom(roomId);
+    const {title,questions} = useRoom(roomId,sort);
 
     async function sendQuestion(event: FormEvent){
         event.preventDefault();
@@ -38,8 +46,9 @@ export function Room(){
             isHighlighted: false,
             isAnswered: false
         }
+        const key = Date.now().toString();
 
-        await database.ref(`rooms/${roomId}/questions`).push(question);
+        await database.ref(`rooms/${roomId}/questions`).child(key).set(question);
         setNewQuestion('');
     }
 
@@ -86,6 +95,16 @@ export function Room(){
                         <Button type="submit" disabled={!user}>Enivar Pergunta</Button>
                     </div>
                 </form>
+
+                <button
+                className="sort"
+                onClick = {() => {
+                    setSort(!sort);
+                }}
+                >
+                    <span>{sort ? "Mais curtida ▲" : "Mais recente ▼" }</span>
+                </button>
+                    
                 <div className="questionList">
                     {questions.map(question => {
                         return(

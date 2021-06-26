@@ -28,13 +28,14 @@ type FirebaseQuestions = Record<string,{
     }>
 }>;
 
-export function useRoom(roomId: string){
+export function useRoom(roomId: string,sortBy?:boolean){
     const {user} = useAuth();
     const [questions,setQuestions] = useState<QuestionProps[]>([]);
     const [title, setTitle] = useState('');
 
     useEffect(() =>{
-        const roomRef = database.ref(`rooms/${roomId}`);
+        
+        let roomRef = database.ref(`rooms/${roomId}`);
         roomRef.on('value',room => {
             const databaseRoom = room.val();
             const firebaseQuestions: FirebaseQuestions = databaseRoom.questions ?? {};
@@ -49,14 +50,27 @@ export function useRoom(roomId: string){
                     likeId: Object.entries(value.likes ?? {}).find(([key,like]) =>like.authorId === user?.id)?.[0],
                 }
             });
-            setTitle(databaseRoom.title);
-            setQuestions(parsedQuestion)
+            var byLikes = parsedQuestion.slice(0).sort(function(b,a) {
+                return a.likeCount - b.likeCount;
+            });
+            var byRecent = parsedQuestion.slice(0).sort(function(b,a) {
+                return parseInt(a.id) - parseInt(b.id);
+            });
+
+            if (sortBy){
+                setTitle(databaseRoom.title);
+                setQuestions(byLikes);
+            } else {
+                setTitle(databaseRoom.title);
+                setQuestions(byRecent);
+            }
+            
         })
 
         return () => {
             roomRef.off('value');
         }
-    },[roomId,user?.id]);
+    },[roomId,sortBy,user?.id]);
 
     return{questions, title};
     

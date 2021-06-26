@@ -27,10 +27,43 @@
     }
 }
 
+.hide{
+    display: none;
+}
+
 .main {
     max-width: 800px;
     margin: 0 auto;
     flex: 1;
+
+    .alert{
+        position: relative;
+        margin-top: 32px;
+        padding: 16px;
+        border: 1px solid #825afd;
+        border-radius: 10px;
+        color: #835AFD;
+        text-align: center;
+
+        .close {
+            position: absolute;
+            right: 12px;
+            top: 6px;
+            color: #29292e;
+
+            button {
+                background: transparent;
+                border: none;
+                cursor: pointer;
+            }
+            
+        }
+
+        a {
+            text-decoration: none;
+            color: #29292e;
+        }
+    }
     
     .room-title {
         margin:32px 0 24px;
@@ -42,7 +75,7 @@
             color: #29292e;
         }
 
-        span {
+        > span {
             margin-left: 16px;
             background: #e559f9;
             border-radius: 10px;
@@ -50,6 +83,26 @@
             color: #fff;
             font-weight: 500;
             font-size:14px;
+        }
+
+       > button{
+            margin: 16px;
+            font-size:14px;
+            background:transparent;
+            border:none;
+            height: 16px;
+            cursor: pointer;
+            gap:8px;
+            color: #835AFD;
+        
+            img {
+                height: 16px;
+            }
+        
+            & :hover{
+                filter: brightness(0.8);
+                transition: 0.5s;
+            }
         }
     }
 
@@ -103,11 +156,38 @@
                     cursor: pointer;
                 }
             }
+
+            
         }
     }
 
+    > button{
+        float: right;
+        display: flex;
+        align-content: flex-end;
+        margin: 16px;
+        font-size:14px;
+        background:transparent;
+        border:none;
+        height: 16px;
+        cursor: pointer;
+        gap:8px;
+        color: #835AFD;
+    
+        img {
+            height: 16px;
+        }
+    
+        & :hover{
+            filter: brightness(0.8);
+            transition: 0.5s;
+        }
+    }
+
+   
+
     .questionList {
-        margin-top: 32px;
+        margin-top: 52px;
     }
 }
 
@@ -140,3 +220,4 @@
          font-weight: 500;
      }
 }
+

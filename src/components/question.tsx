@@ -11,6 +11,7 @@ type QuestionType ={
     children?:ReactNode;
     isAnswered?:boolean;
     isHighlighted?:boolean;
+    likeCount?:number;
 }
 
 export function Question({
@@ -18,7 +19,8 @@ export function Question({
     author,
     children,
     isAnswered=false,
-    isHighlighted=false
+    isHighlighted=false,
+    likeCount
 }: QuestionType) { 
     return(
         <div className={cx(
@@ -28,7 +30,7 @@ export function Question({
         )}>
             <p>{content}</p>
             <footer>
-            <div className="userInfo">
+            <div className={`userInfo ${isAnswered ? 'answered' : ''}`}>
                 <img src={author.avatar} alt={author.name} />
                 <span>{author.name}</span>
             </div>

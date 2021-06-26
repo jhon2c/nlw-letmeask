@@ -22,13 +22,13 @@ export function NewRoom() {
         }
 
         const roomRef = database.ref('rooms');
-
-        const firebaseRoom = await roomRef.push({
+        var key = Date.now().toString();
+        await roomRef.child(key).set({
+            key: key,
             title: newRoom,
             authorId: user?.id,
         });
-        history.push(`/rooms/${firebaseRoom.key}`);
-
+        history.push(`/admin/rooms/${key}`);
     }
 
     return(
